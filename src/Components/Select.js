@@ -80,7 +80,7 @@ const Select = ({focus , optionsData , ...props}) => {
     return (
         <div className={ stylesSelect.select }>
             <div className={ stylesSelect.select__head }>
-                <NavLink className={ stylesSelect.select__head__link } to={ '/home' }>
+                <NavLink className={ stylesSelect.select__head__link } to={ '/test-task/home' }>
                     <FontAwesomeIcon icon={ faArrowLeft }/> Реализуемые товары
                 </NavLink>
                 <input onChange={ onChange } onFocus={ onFocus } onBlur={ onBlur }
