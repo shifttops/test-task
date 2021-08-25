@@ -1,0 +1,37 @@
+.actions {
+  grid-area: actions;
+  margin-top: 48px;
+  width: 100%;
+  flex: 0 0 auto;
+  &__body {
+    padding: 15px 30px;
+    background-color: #FAFAFA;
+    box-shadow: 0px -1px 0px #D9D9D9;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  transition: all 0.3s ease 0s;
+
+  &__accept {
+    background-color: #035B77;
+    border-radius: 4px;
+    padding: 11px 20px;
+    color: #fff;
+    @media(any-hover: hover) {
+      &:hover {
+        color: #d7d7d7;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__clear {
+    font-weight: 500;
+    @media(any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

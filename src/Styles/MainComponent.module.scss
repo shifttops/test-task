@@ -1,0 +1,66 @@
+@import "null";
+
+.mainComponent {
+  &__body {
+    margin-top: 14px;
+    padding: 10px;
+    display: grid;
+    @media(max-width: 450px){
+      column-gap: 100px;
+    }
+    column-gap: 215px;
+    grid-template-areas: 'text button'
+                         'input input';
+    align-items: flex-end;
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 18px;
+    color: #272526;
+    grid-area: text;
+  }
+
+  &__showBtn {
+    grid-area: button;
+    text-align: right;
+    font-weight: 600;
+    font-size: 14px;
+    color: #035B77;
+  }
+}
+
+
+
+.input {
+  overflow: hidden;
+  position: relative;
+  color: #272526;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 10px;
+  margin-top: 14px;
+  grid-area: input;
+  outline: none;
+  border: 1px solid #D9D9D9;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 20px;
+  @media(any-hover: hover){
+      &:hover{
+        color: #035B77;
+      }
+  }
+  &__sl{
+    &::before{
+      content: '';
+      position: absolute;
+      width: 3px;
+      height: 34px;
+      background-color: #035B77;
+      border-radius: 4px;
+      left: -1px;
+      bottom: 3px;
+    }
+  }
+}
