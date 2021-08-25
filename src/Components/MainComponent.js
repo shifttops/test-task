@@ -8,12 +8,20 @@ import { incrementSelectedCount } from "../Redux/selectReducer";
 const MainComponent = ({...props}) => {
     let counter = 0;
 
-    let [selectedDataText] = useState ( [] )
+    let [counterState, setcounterState] = useState(0)
+    let [selectedDataText , setData] = useState ([] )
+
+    useEffect(() => {
+        if(counterState === 0){
+            createSelectedData ( props.optionsData )
+        }
+        setcounterState(1)
+    })
 
     const createSelectedData = (optionsData) => {
         let checkFields = (fields) => {
             for (let field of fields) {
-                checkField(field)
+                checkField ( field )
             }
         }
 
@@ -25,14 +33,8 @@ const MainComponent = ({...props}) => {
             else if (field.nestedFields) return checkFields ( field.nestedFields )
         }
 
-        checkFields(optionsData)
+        checkFields ( optionsData )
     }
-
-    useEffect(() => {
-        if (props.selectedCount !== 0) {
-            createSelectedData ( props.optionsData )
-        }
-    }, [])
 
     let setCount = (useCallback ( (optionsData) => {
         for (const option of optionsData) {
@@ -47,7 +49,9 @@ const MainComponent = ({...props}) => {
 
     useEffect ( () => {
         setCount ( props.optionsData )
-        createSelectedData ( props.optionsData )
+        if(counterState){
+            createSelectedData ( props.optionsData )
+        }
     } , [props.optionsData , setCount] )
 
     return (
